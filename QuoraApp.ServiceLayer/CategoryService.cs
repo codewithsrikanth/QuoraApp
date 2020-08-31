@@ -48,7 +48,7 @@ namespace QuoraApp.ServiceLayer
         public List<CategoryViewModel> GetCategories()
         {
             List<Category> c = cr.GetCategories();
-            var config = new MapperConfiguration(cfg => { cfg.CreateMap<Category, CategoryViewModel>(); cfg.IgnoreUnmapped(); });
+            var config = new MapperConfiguration(cfg => { cfg.CreateMap<List<Category>,List<CategoryViewModel>>(); cfg.IgnoreUnmapped(); });
             IMapper mapper = config.CreateMapper();
             List<CategoryViewModel> cvm = mapper.Map<List<Category>, List<CategoryViewModel>>(c);
             return cvm;
